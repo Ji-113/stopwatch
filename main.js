@@ -1,54 +1,50 @@
-'use strict';
+const time = document.getElementById('time');
+const startButton = document.getElementById('start');
+const stopButton = document.getElementById('stop');
+const resetButton = document.getElementById('reset');
 
-const stopwatch = document.getElementById('stopwatch');
-const start = document.getElementById('start');
-const reset = document.getElementById('reset');
+// 開始時間
+let startTime;
+// 停止時間
+let stopTime = 0;
+// タイムアウトID
+let timeoutID;
 
-let state = 'start';
-let timerId;
-let elapsedMs = 0;
+// 時間を表示する関数
+function displayTime() {
+  const currentTime = new Date(Date.now() - startTime + stopTime);
+  const h = String(currentTime.getHours()-1).padStart(2, '0');
+  const m = String(currentTime.getMinutes()).padStart(2, '0');
+  const s = String(currentTime.getSeconds()).padStart(2, '0');
+  const ms = String(currentTime.getMilliseconds()).padStart(3, '0');
 
-function timeToString(millis) {
-    const ms = millis % 1000; // ミリ秒
-    const s = Math.floor(millis / 1000) % 60;
-    const m = Math.floor(millis / 1000 / 60) % 60;
-
-    const formattedMs = ms.toString().padStart(3, '0');
-    const formattedS = s.toString().padStart(2, '0');
-    const formattedM = m.toString().padStart(2, '0');
-
-    return `${formattedM}:${formattedS}.${formattedMs}`;
+  time.textContent = `${h}:${m}:${s}.${ms}`;
+  timeoutID = setTimeout(displayTime, 10);
 }
 
-start.addEventListener('click', () => {
-    if (state === 'start') {
-        state = 'stop';
-        start.textContent = 'ストップ';
-        start.classList.add('stop');
-
-        let startMs = Date.now(); // 開始時間
-        startMs -= elapsedMs;
-
-        timerId = setInterval(() => {
-            const nowMs = Date.now();
-            elapsedMs = nowMs - startMs; // 経過ミリ秒
-    
-            stopwatch.textContent = timeToString(elapsedMs);
-        }, 10);
-    } else { // state === start
-        state = 'start';
-        clearInterval(timerId);
-        start.textContent = 'リスタート';
-        start.classList.remove('stop');
-
-    }
+// スタートボタンがクリックされたら時間を進める
+startButton.addEventListener('click', () => {
+  startButton.disabled = true;
+  stopButton.disabled = false;
+  resetButton.disabled = true;
+  startTime = Date.now();
+  displayTime();
 });
 
-reset.addEventListener('click', () => {
-    state = 'start';
-    clearInterval(timerId);
-    start.textContent = 'スタート';
-    start.classList.remove('stop');
-    elapsedMs = 0;
-    stopwatch.textContent = '00:00.000';
+// ストップボタンがクリックされたら時間を止める
+stopButton.addEventListener('click', function() {
+  startButton.disabled = false;
+  stopButton.disabled = true;
+  resetButton.disabled = false;
+  clearTimeout(timeoutID);
+  stopTime += (Date.now() - startTime);
+});
+
+// リセットボタンがクリックされたら時間を0に戻す
+resetButton.addEventListener('click', function() {
+  startButton.disabled = false;
+  stopButton.disabled = true;
+  resetButton.disabled = true;
+  time.textContent = '00:00:00.000';
+  stopTime = 0;
 });
