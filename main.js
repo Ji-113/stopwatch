@@ -23,10 +23,10 @@ function displayTime() {
 }
 
 // スタートボタンがクリックされたら時間を進める
-start.addEventListener("click", () => {
-  start.disabled = true;
-  stop.disabled = false;
-  resset.disabled = true;
+startButton.addEventListener('click', () => {
+  startButton.disabled = true;
+  stopButton.disabled = false;
+  resetButton.disabled = true;
   startTime = Date.now();
   displayTime();
 });
