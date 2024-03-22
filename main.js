@@ -27,6 +27,7 @@ start.addEventListener("click", () => {
   start.disabled = true;
   stop.disabled = false;
   resset.disabled = true;
+  startTime = Date.now();
   displayTime();
 });
 
