@@ -4,7 +4,7 @@ const stopButton = document.getElementById('stop');
 const resetButton = document.getElementById('reset');
 
 // 開始時間
-let startTime;
+let startTime;0
 // 停止時間
 let stopTime = 0;
 // タイムアウトID
