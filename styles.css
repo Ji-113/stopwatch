@@ -12,7 +12,7 @@ h1 {
 }
 
 #container {
-  background-color: #ffffff;
+  background-color: #000000;
   width: 540px;
   border-radius: 1rem;
   margin: 0 auto;
@@ -20,7 +20,7 @@ h1 {
 }
 
 #time {
-  color: #1e90ff;
+  color: #FF0000;
   font-size: 3rem;
   text-align: center;
   padding: 1rem;
