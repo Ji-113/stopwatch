@@ -17,5 +17,57 @@
   </div>
 </div>
 <script src='main.js'></script>
+<br><br><br><br><br>
+<a href="https://ji-113.github.io/link/" class="btn_27">リンク集へ</a>
+<style>
+a.btn_27 {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	color: #fff;
+	font-weight: bold;
+	background: #27acd9;
+	position: relative;
+	transition: 0.3s ease-in-out;
+}
+a.btn_27:hover {
+    background: #fff;
+    color: #27acd9;
+}
+a.btn_27:before, a.btn_27:after {
+  box-sizing: inherit;
+  content: "";
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+a.btn_27:before {
+  top: 0;
+  left: 0;
+}
+a.btn_27:after {
+  bottom: 0;
+  right: 0;
+}
+a.btn_27:hover:before, a.btn_27:hover:after {
+  width: 100%;
+  height: 100%;
+}
+a.btn_27:hover:before {
+  border-top-color: #27acd9;
+  border-right-color: #27acd9;
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+a.btn_27:hover:after {
+  border-bottom-color: #27acd9;
+  border-left-color: #27acd9;
+  transition: border-color 0s ease-out 0.2s, width 0.15s ease-out 0.2s, height 0.15s ease-out 0.3s;
+}
+</style>
 </body>
 </html>
