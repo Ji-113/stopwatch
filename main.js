@@ -30,6 +30,6 @@ let startTime = null;
     document.getElementById("reset").addEventListener("click", () => {
       clearTimeout(timerId);
       elapsedTime = 0;
-      stopwatchElement.textContent = "00:00:00";
+      stopwatchElement.textContent = "00:00:00:00";
       timerId = null;
     });
