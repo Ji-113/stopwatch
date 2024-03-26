@@ -1,10 +1,10 @@
 html, body {
-  font-family: 'serif','ＭＳ Ｐ明朝';
   font-size: 16px;
   background-color: #F0F8FF;
 }
 
 h1 {
+  font-family: 'serif','ＭＳ Ｐ明朝';
   color: #00FF7F;
   text-align: center;
   font-size: 2rem;
