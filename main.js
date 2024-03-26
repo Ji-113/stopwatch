@@ -7,8 +7,6 @@ let startTime = null;
       const now = new Date();
       elapsedTime += now - startTime;
       startTime = now;
-
-      const hours = Math.floor(elapsedTime / (60 * 1000));
       const minutes = Math.floor(elapsedTime / (60 * 1000));
       const seconds = Math.floor((elapsedTime % (60 * 1000)) / 1000);
       const milliseconds = elapsedTime % 1000;
@@ -31,6 +29,6 @@ let startTime = null;
     document.getElementById("reset").addEventListener("click", () => {
       clearTimeout(timerId);
       elapsedTime = 0;
-      stopwatchElement.textContent = "00:00:00:00";
+      stopwatchElement.textContent = "00:00:00";
       timerId = null;
     });
