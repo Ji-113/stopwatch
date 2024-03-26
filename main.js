@@ -8,6 +8,7 @@ let startTime = null;
       elapsedTime += now - startTime;
       startTime = now;
 
+      const hours = Math.floor(elapsedTime / (60 * 1000));
       const minutes = Math.floor(elapsedTime / (60 * 1000));
       const seconds = Math.floor((elapsedTime % (60 * 1000)) / 1000);
       const milliseconds = elapsedTime % 1000;
