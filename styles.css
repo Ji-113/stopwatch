@@ -40,4 +40,5 @@ h1 {
   border-radius: .3rem;
   box-shadow: 0 0 20px rgba(77, 78, 79, 0.25);
   background-color: #FFFFFF;
+  cursor: pointer;
 }
